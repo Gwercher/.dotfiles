@@ -22,7 +22,7 @@ ZSH_THEME="aphrodite_custom"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -66,10 +66,7 @@ plugins=(
   colored-man-pages
   gitignore
   pip
-  python
   safe-paste
-  thefuck
-  themes
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -107,15 +104,4 @@ source $ZSH/oh-my-zsh.sh
 export VISUAL=nvim
 export RANGER_LOAD_DEFAULT_RC=false
 
-fpath+=${ZDOTDIR:-~}/.zsh_functions
-PATH="/home/gwercher/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/gwercher/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/gwercher/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/gwercher/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/gwercher/perl5"; export PERL_MM_OPT;
-
-## use pywal colors
-# (cat ~/.cache/wal/sequences &)
-
-alias bewerbung_execute="python3 ~/Desktop/bewerbungen/texwriter.py"
 alias exi="exit"
