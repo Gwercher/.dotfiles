@@ -1,6 +1,7 @@
 # dependencies
 sudo apt update
 sudo apt install sudo wget git -y
+sudo apt install xorg -y
 
 # zsh
 sudo apt install zsh -y
@@ -51,3 +52,6 @@ sudo apt install i3 -y
 
 # firefox
 sudo apt install firefox-esr -y
+
+#ranger
+sudo apt install ranger -y
