@@ -13,7 +13,7 @@ sudo apt install zsh -y
 sudo apt install polybar -y
 
 # i3
-sudo apt install i3 -y
+sudo apt install i3 feh -y
 
 # firefox
 sudo apt install firefox-esr -y
@@ -22,7 +22,7 @@ sudo apt install firefox-esr -y
 sudo apt install ranger -y
 
 # font: dejavu sansm nerd font
-cd ~/Downloads && wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DejaVuSansMono.zip && unzip DejaVuSansMono.zip -d /usr/local/share/fonts
+cd ~/Downloads && wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DejaVuSansMono.zip && sudo unzip DejaVuSansMono.zip -d /usr/local/share/fonts
 
 # oh my zsh
 cd ~/Downloads && sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
