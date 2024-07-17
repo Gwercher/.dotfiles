@@ -1,7 +1,7 @@
 # dependencies
 mkdir ~/Downloads
 sudo apt update
-sudo apt install sudo wget git xorg -y
+sudo apt install sudo wget git xorg unzip -y
 
 # zsh
 sudo apt install zsh -y
@@ -20,6 +20,9 @@ sudo apt install firefox-esr -y
 
 #ranger
 sudo apt install ranger -y
+
+# font: dejavu sansm nerd font
+cd ~/Downloads && wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DejaVuSansMono.zip && unzip DejaVuSansMono.zip -d /usr/local/share/fonts
 
 # oh my zsh
 cd ~/Downloads && sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
