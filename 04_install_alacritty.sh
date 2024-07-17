@@ -21,3 +21,5 @@ cp ~/Downloads/alacritty/extra/completions/_alacritty ${ZDOTDIR:-~}/.zsh_functio
 # change alacritty to default terminal
 sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/local/bin/alacritty 50
 # sudo update-alternatives --config x-terminal-emulator
+#
+echo -e "\n\n\n\033[0;31mNEXT: 05_move_config.sh"

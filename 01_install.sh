@@ -26,3 +26,5 @@ cd ~/Downloads && wget https://github.com/ryanoasis/nerd-fonts/releases/download
 
 # oh my zsh
 cd ~/Downloads && sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+
+echo -e "\n\n\n\033[0;31mNEXT: 02_install_nvim.sh"
