@@ -1,13 +1,14 @@
 # dependencies
 mkdir ~/Downloads
 sudo apt update
-sudo apt install sudo wget git xorg unzip -y
+sudo apt install sudo wget curl git xorg unzip -y
 
 # zsh
 sudo apt install zsh -y
 
 # oh my zsh
 cd ~/Downloads && sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
+zsh && chsh -s /bin/zsh && source ~/.zshrc
 
 # polybar
 sudo apt install polybar -y

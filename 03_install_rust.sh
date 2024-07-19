@@ -4,8 +4,7 @@ cd ~/Downloads && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 #experimental
 source ~/.zshrc
-rustup override set stable && rustup update stable
+zsh && rustup override set stable && rustup update stable
 
 echo "\n\n\n"
-echo "\033[0;31mMANUAL RELOAD USING 'omz reload' NEEDED!"
 echo "\n\033[0;31mNEXT: 04_install_alacritty.sh"
