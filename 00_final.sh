@@ -8,7 +8,7 @@ sudo apt install zsh -y
 
 # oh my zsh
 cd ~/Downloads && sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
-chsh -s /bin/zsh c
+chsh -s /bin/zsh
 
 # polybar
 sudo apt install polybar -y
@@ -61,10 +61,10 @@ cp ~/Downloads/alacritty/extra/completions/_alacritty ${ZDOTDIR:-~}/.zsh_functio
 sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/local/bin/alacritty 50
 # sudo update-alternatives --config x-terminal-emulator
 
-cp .config ~ -R
-cp .oh-my-zsh ~ -R
-cp .xinitrc ~
-cp .zprofile ~
-cp .zshrc ~
+cp ~/.dotfiles/.config ~ -R
+cp ~/.dotfiles/.oh-my-zsh ~ -R
+cp ~/.dotfiles/.xinitrc ~
+cp ~/.dotfiles/.zprofile ~
+cp ~/.dotfiles/.zshrc ~
 
-echo "\n\n\n\033[0;31mREBOOT SYSTEM FOR CHANGES TO TAKE AFFECT"
+echo -e "\n\n\n\033[0;31mREBOOT SYSTEM FOR CHANGES TO TAKE AFFECT"
