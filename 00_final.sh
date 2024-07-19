@@ -8,7 +8,7 @@ sudo apt install zsh -y
 
 # oh my zsh
 cd ~/Downloads && sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
-chsh -s /bin/zsh
+sudo chsh -s /bin/zsh
 
 # polybar
 sudo apt install polybar -y
