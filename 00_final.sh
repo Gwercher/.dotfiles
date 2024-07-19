@@ -59,8 +59,8 @@ cp ~/Downloads/alacritty/extra/completions/_alacritty ${ZDOTDIR:-~}/.zsh_functio
 
 # change alacritty to default terminal
 sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/local/bin/alacritty 50
-# sudo update-alternatives --config x-terminal-emulator
 
+# copy dotfiles
 cp ~/.dotfiles/.config ~ -R
 cp ~/.dotfiles/.oh-my-zsh ~ -R
 cp ~/.dotfiles/.xinitrc ~
@@ -68,3 +68,4 @@ cp ~/.dotfiles/.zprofile ~
 cp ~/.dotfiles/.zshrc ~
 
 echo -e "\n\n\n\033[0;31mREBOOT SYSTEM FOR CHANGES TO TAKE AFFECT"
+sudo reboot
