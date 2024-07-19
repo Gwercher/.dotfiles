@@ -3,13 +3,6 @@ mkdir ~/Downloads
 sudo apt update
 sudo apt install sudo wget curl git xorg unzip -y
 
-# zsh
-sudo apt install zsh -y
-
-# oh my zsh
-cd ~/Downloads && sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
-zsh && chsh -s /bin/zsh && source ~/.zshrc
-
 # polybar
 sudo apt install polybar -y
 
@@ -59,6 +52,13 @@ cp ~/Downloads/alacritty/extra/completions/_alacritty ${ZDOTDIR:-~}/.zsh_functio
 # change alacritty to default terminal
 sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/local/bin/alacritty 50
 # sudo update-alternatives --config x-terminal-emulator
+
+# zsh
+sudo apt install zsh -y
+
+# oh my zsh
+cd ~/Downloads && sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
+zsh && chsh -s /bin/zsh && source ~/.zshrc
 
 cp .config ~ -R
 cp .oh-my-zsh ~ -R
