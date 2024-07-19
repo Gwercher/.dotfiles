@@ -105,3 +105,28 @@ export VISUAL=nvim
 export RANGER_LOAD_DEFAULT_RC=false
 
 alias exi="exit"
+
+###########################################
+# vim like movement keybinds
+# zle -al: show all zsh widgets
+
+# alt + l: right
+bindkey "^[l" forward-char 
+
+# alt + h: left
+bindkey "^[h" backward-char 
+
+# alt + j: down 
+bindkey "^[j" down-history
+
+# alt + k: up 
+bindkey "^[k" up-history
+
+# alt + x: delete current char
+bindkey "^[x" delete-char
+
+# alt + w: right word
+bindkey "^[w" forward-word 
+
+# alt + b: left word
+bindkey "^[b" backward-word 
