@@ -35,7 +35,8 @@ cd ~/Downloads/ && git clone https://github.com/neovim/neovim && cd neovim && ma
 # rust
 sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 desktop-file-utils -y
 cd ~/Downloads && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-zsh && rustup override set stable && rustup update stable
+. "$HOME/.cargo/env"
+rustup override set stable && rustup update stable
 
 # alacritty
 cd ~/Downloads && git clone https://github.com/alacritty/alacritty.git
