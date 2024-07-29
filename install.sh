@@ -30,7 +30,7 @@ cd ~/Downloads && wget https://github.com/ryanoasis/nerd-fonts/releases/download
 
 # neovim
 sudo apt-get install ninja-build gettext cmake unzip curl build-essential -y
-cd ~/Downloads/ && git clone https://github.com/neovim/neovim && cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo && git checkout stable && cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
+cd ~/Downloads/ && git clone https://github.com/neovim/neovim && cd neovim && git checkout stable && make CMAKE_BUILD_TYPE=RelWithDebInfo && cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 
 # rust
 sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 desktop-file-utils -y
@@ -63,6 +63,7 @@ sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emula
 # copy dotfiles
 cp ~/.dotfiles/.config ~ -R
 cp ~/.dotfiles/.oh-my-zsh ~ -R
+cp ~/.dotfiles/.ranger ~ -R
 cp ~/.dotfiles/.xinitrc ~
 cp ~/.dotfiles/.zprofile ~
 cp ~/.dotfiles/.zshrc ~
