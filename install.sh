@@ -1,7 +1,7 @@
 # dependencies
 mkdir ~/Downloads
 sudo apt update
-sudo apt install sudo wget curl git xorg unzip -y
+sudo apt install sudo wget curl git xorg unzip xsel -y
 
 # zsh
 sudo apt install zsh -y
