@@ -29,7 +29,9 @@ font pango:DejaVuSansM Nerd Font Mono 12
 exec --no-startup-id dex --autostart --environment i3
 
 # set resolution
-exec --no-startup-id xrandr --output Virtual1 --mode 1920x1080 
+# get display name using:
+# xrandr --query | grep " connected" | cut -d" " -f1
+exec --no-startup-id xrandr --output DISPLAY-NAME --mode 1920x1080 
 
 # auto apply xterm stuff
 # exec --no-startup-id xrdb -merge ~/.Xresources

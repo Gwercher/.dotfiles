@@ -29,7 +29,7 @@ sudo apt install sqlite3 sqlitebrowser -y
 cd ~/Downloads && wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DejaVuSansMono.zip && sudo unzip DejaVuSansMono.zip -d /usr/local/share/fonts
 
 # neovim
-sudo apt-get install ninja-build gettext cmake unzip curl build-essential -y
+sudo apt-get install ninja-build gettext cmake unzip curl build-essential npm python3.11-venv pip -y
 cd ~/Downloads/ && git clone https://github.com/neovim/neovim && cd neovim && git checkout stable && make CMAKE_BUILD_TYPE=RelWithDebInfo && cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 
 # rust
@@ -41,7 +41,7 @@ rustup override set stable && rustup update stable
 # alacritty
 cd ~/Downloads && git clone https://github.com/alacritty/alacritty.git
 
-cd ~/Downloads/alacritty && cargo build --release && sudo tic -xe alacritty,alacritty-direct extra/alacritty.info && sudo cp target/release/alacritty /usr/local/bin && sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg && sudo desktop-file-install extra/linux/Alacritty.desktop && sudo update-desktop-database
+cd ~/Downloads/alacritty && cargo build --release --no-default-features --features=x11 && sudo tic -xe alacritty,alacritty-direct extra/alacritty.info && sudo cp target/release/alacritty /usr/local/bin && sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg && sudo desktop-file-install extra/linux/Alacritty.desktop && sudo update-desktop-database
 
 sudo apt install gzip scdoc -y
 
@@ -68,5 +68,4 @@ cp ~/.dotfiles/.xinitrc ~
 cp ~/.dotfiles/.zprofile ~
 cp ~/.dotfiles/.zshrc ~
 
-echo -e "\n\n\n\033[0;31mREBOOT SYSTEM FOR CHANGES TO TAKE AFFECT"
 sudo reboot
