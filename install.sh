@@ -1,7 +1,7 @@
 # dependencies
 mkdir ~/Downloads
 sudo apt update
-sudo apt install sudo wget curl git xorg unzip xsel -y
+sudo apt install sudo wget curl git xorg unzip xsel tldr -y
 
 # zsh
 sudo apt install zsh -y
@@ -68,4 +68,9 @@ cp ~/.dotfiles/.xinitrc ~
 cp ~/.dotfiles/.zprofile ~
 cp ~/.dotfiles/.zshrc ~
 
-sudo reboot
+rm ~/Downloads/alacritty -rf
+rm ~/Downloads/neovim -rf
+rm ~/Downloads/DejaVuSansMono.zip
+
+echo "change resolution in ~/.config/i3/config"
+echo "reboot to see changes"
