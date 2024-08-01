@@ -1,4 +1,3 @@
-# dependencies
 mkdir ~/Downloads
 sudo apt update
 sudo apt install sudo wget curl git xorg unzip xsel tldr -y
@@ -63,7 +62,6 @@ sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emula
 # copy dotfiles
 cp ~/.dotfiles/.config ~ -R
 cp ~/.dotfiles/.oh-my-zsh ~ -R
-cp ~/.dotfiles/.ranger ~ -R
 cp ~/.dotfiles/.xinitrc ~
 cp ~/.dotfiles/.zprofile ~
 cp ~/.dotfiles/.zshrc ~
@@ -73,5 +71,4 @@ rm ~/Downloads/neovim -rf
 rm ~/Downloads/DejaVuSansMono.zip
 
 echo "change resolution in ~/.config/i3/config"
-grep DISPLAY-NAME ~/.config/i3/config
 echo "reboot to see changes"
