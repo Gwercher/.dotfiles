@@ -73,4 +73,5 @@ rm ~/Downloads/neovim -rf
 rm ~/Downloads/DejaVuSansMono.zip
 
 echo "change resolution in ~/.config/i3/config"
+grep DISPLAY-NAME ~/.config/i3/config
 echo "reboot to see changes"
