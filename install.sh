@@ -38,22 +38,21 @@ cd ~/Downloads && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup override set stable && rustup update stable
 
 # alacritty
-sudo apt install alacritty
-# cd ~/Downloads && git clone https://github.com/alacritty/alacritty.git
-#
-# cd ~/Downloads/alacritty && cargo build --release --no-default-features --features=x11 && sudo tic -xe alacritty,alacritty-direct extra/alacritty.info && sudo cp target/release/alacritty /usr/local/bin && sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg && sudo desktop-file-install extra/linux/Alacritty.desktop && sudo update-desktop-database
-#
-# sudo apt install gzip scdoc -y
-#
-# sudo mkdir -p /usr/local/share/man/man1
-# sudo mkdir -p /usr/local/share/man/man5
-# scdoc <~/Downloads/alacritty/extra/man/alacritty.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty.1.gz >/dev/null
-# scdoc <~/Downloads/alacritty/extra/man/alacritty-msg.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz >/dev/null
-# scdoc <~/Downloads/alacritty/extra/man/alacritty.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty.5.gz >/dev/null
-# scdoc <~/Downloads/alacritty/extra/man/alacritty-bindings.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz >/dev/null
-#
-# mkdir -p ${ZDOTDIR:-~}/.zsh_functions
-# echo 'fpath+=${ZDOTDIR:-~}/.zsh_functions' >>${ZDOTDIR:-~}/.zshrc
+cd ~/Downloads && git clone https://github.com/alacritty/alacritty.git
+
+cd ~/Downloads/alacritty && cargo build --release --no-default-features --features=x11 && sudo tic -xe alacritty,alacritty-direct extra/alacritty.info && sudo cp target/release/alacritty /usr/local/bin && sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg && sudo desktop-file-install extra/linux/Alacritty.desktop && sudo update-desktop-database
+
+sudo apt install gzip scdoc -y
+
+sudo mkdir -p /usr/local/share/man/man1
+sudo mkdir -p /usr/local/share/man/man5
+scdoc <~/Downloads/alacritty/extra/man/alacritty.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty.1.gz >/dev/null
+scdoc <~/Downloads/alacritty/extra/man/alacritty-msg.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz >/dev/null
+scdoc <~/Downloads/alacritty/extra/man/alacritty.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty.5.gz >/dev/null
+scdoc <~/Downloads/alacritty/extra/man/alacritty-bindings.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz >/dev/null
+
+mkdir -p ${ZDOTDIR:-~}/.zsh_functions
+echo 'fpath+=${ZDOTDIR:-~}/.zsh_functions' >>${ZDOTDIR:-~}/.zshrc
 
 cp ~/Downloads/alacritty/extra/completions/_alacritty ${ZDOTDIR:-~}/.zsh_functions/_alacritty
 
@@ -71,5 +70,6 @@ rm ~/Downloads/alacritty -rf
 rm ~/Downloads/neovim -rf
 rm ~/Downloads/DejaVuSansMono.zip
 
+echo "\n\n\n\n"
 echo "change resolution in ~/.config/i3/config"
 echo "reboot to see changes"

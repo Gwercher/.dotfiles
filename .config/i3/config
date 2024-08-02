@@ -27,7 +27,8 @@ exec --no-startup-id dex --autostart --environment i3
 # set resolution
 # get display names using:
 # xrandr --query | grep " connected" | cut -d" " -f1
-exec --no-startup-id xrandr --output DISPLAYNAME --mode 1920x1080 
+# exec --no-startup-id xrandr --output DISPLAYNAME --mode 1920x1080 
+exec --no-startup-id xrandr --output Virtual-1 --mode 1920x1080 
 
 # wallpaper
 exec --no-startup-id feh --bg-scale ~/.config/i3/wallpaper.png
