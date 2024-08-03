@@ -73,6 +73,4 @@ rm ~/Downloads/alacritty -rf
 rm ~/Downloads/neovim -rf
 rm ~/Downloads/DejaVuSansMono.zip
 
-echo "\n\n\n\n"
-echo "change resolution in ~/.config/i3/config"
-echo "reboot to see changes"
+sudo reboot
