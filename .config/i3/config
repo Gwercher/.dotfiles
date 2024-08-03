@@ -220,7 +220,6 @@ client.placeholder      #000000    #0c0c0c    $ctext  #000000    #0c0c0c
 
 client.background       #ffffff
 
-# bindsym $mod+d exec --no-startup-id dmenu_run -nb '#282828' -nf '#ebdbb2' -sb '#d79921' -sf '#ffffff'
 # new dmenu, using rofi
 bindsym $mod+d exec --no-startup-id rofi -show drun 
 
@@ -229,3 +228,6 @@ bindsym mod1+Tab exec --no-startup-id rofi -show window
 
 # start polybar on all displays
 exec --no-startup-id ~/.config/polybar/launch_polybar.zsh 
+
+# i3lock
+bindsym $mod+F1 exec --no-startup-id -i ~/.config/i3/wallpaper.png -t
