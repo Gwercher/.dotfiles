@@ -15,6 +15,9 @@ sudo apt install polybar -y
 # i3
 sudo apt install i3 feh -y
 
+# rofi
+sudo apt install rofi -y
+
 # firefox and thunderbird
 sudo apt install firefox-esr thunderbird -y
 
