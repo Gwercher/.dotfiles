@@ -21,6 +21,9 @@ sudo apt install rofi -y
 # firefox and thunderbird
 sudo apt install firefox-esr thunderbird -y
 
+# latex
+sudo apt install texlive-full -y
+
 # ranger
 sudo apt install ranger -y
 
