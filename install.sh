@@ -30,6 +30,9 @@ sudo apt install ranger -y
 # sqlite3 and sqlitebrowser
 sudo apt install sqlite3 sqlitebrowser -y
 
+# gimp
+sudo apt install gimp -y
+
 # font: dejavu sansm nerd font
 cd ~/Downloads && wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DejaVuSansMono.zip && sudo unzip DejaVuSansMono.zip -d /usr/local/share/fonts
 
