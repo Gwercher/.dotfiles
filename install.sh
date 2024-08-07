@@ -22,7 +22,9 @@ sudo apt install rofi -y
 sudo apt install firefox-esr thunderbird -y
 
 # latex
-sudo apt install texlive-full -y
+# sudo apt install texlive-full -y
+# all packages from texlive-full, minus unused languages
+sudo apt install texlive-base texlive-bibtex-extra texlive-binaries texlive-font-utils texlive-fonts-extra-doc texlive-fonts-extra-links texlive-fonts-extra texlive-fonts-recommended-doc texlive-fonts-recommended texlive-formats-extra texlive-games texlive-humanities-doc texlive-humanities texlive-lang-english texlive-lang-german texlive-latex-base-doc texlive-latex-base texlive-latex-extra-doc texlive-latex-extra texlive-latex-recommended-doc texlive-latex-recommended texlive-luatex texlive-metapost-doc texlive-metapost texlive-music texlive-pictures-doc texlive-pictures texlive-plain-generic texlive-pstricks-doc texlive-pstricks texlive-publishers-doc texlive-publishers texlive-science-doc texlive-science texlive-xetex -y
 
 # ranger
 sudo apt install ranger -y
