@@ -1,6 +1,6 @@
 mkdir ~/Downloads
 sudo apt update
-sudo apt install sudo wget curl git xorg unzip xsel tldr -y
+sudo apt install sudo wget curl git xorg unzip xsel tldr neofetch -y
 
 # zsh
 sudo apt install zsh -y
@@ -17,6 +17,9 @@ sudo apt install i3 feh -y
 
 # rofi
 sudo apt install rofi -y
+
+# wifi menu (rofi)
+sudo apt install network-manager dunst -y
 
 # firefox and thunderbird
 sudo apt install firefox-esr thunderbird -y
