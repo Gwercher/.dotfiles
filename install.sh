@@ -21,6 +21,9 @@ sudo apt install rofi -y
 # wifi menu (rofi)
 sudo apt install network-manager dunst -y
 
+# pulseaudio
+sudo apt install pulseaudio pavucontrol -y
+
 # firefox and thunderbird
 sudo apt install firefox-esr thunderbird -y
 
