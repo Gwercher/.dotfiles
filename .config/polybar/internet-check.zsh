@@ -7,5 +7,5 @@ if [ $online -eq 0 ]; then
   echo "Wifi"
 else
 # echo $(date +%d-%m-%y\ %H:%M:%S) >> ~/internet-status/$(date +%m-%y)
-  echo "%{F#cc241d}Offline"
+  echo "%{F#cc241d}Wifi"
 fi
