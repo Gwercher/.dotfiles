@@ -73,8 +73,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-# TODO: change key
-# bindsym $mod+h split h
+bindsym $mod+c split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -197,6 +196,9 @@ client.urgent           $curgent   $curgent   $ctext  $curgent   $curgent
 client.placeholder      #000000    #0c0c0c    $ctext  #000000    #0c0c0c
 
 client.background       #ffffff
+
+# border style
+default_border pixel 5
 
 # new dmenu, using rofi
 bindsym $mod+d exec --no-startup-id rofi -show drun 
