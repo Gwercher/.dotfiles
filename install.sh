@@ -27,6 +27,12 @@ sudo apt install pulseaudio pavucontrol -y
 # firefox and thunderbird
 sudo apt install firefox-esr thunderbird -y
 
+# libreoffice
+sudo apt install libreoffice -y
+
+# cli calendar
+sudo apt install calcurse -y
+
 # latex
 # sudo apt install texlive-full -y
 # all packages from texlive-full, minus unused languages

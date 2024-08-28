@@ -105,6 +105,7 @@ export VISUAL=nvim
 export RANGER_LOAD_DEFAULT_RC=false
 
 alias exi="exit"
+alias calc="python3 -ic 'from math import *'"
 
 ###########################################
 # vim like movement keybinds
