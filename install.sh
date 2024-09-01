@@ -1,6 +1,6 @@
 mkdir ~/Downloads
 sudo apt update
-sudo apt install sudo wget curl git xorg unzip xsel tldr neofetch -y
+sudo apt install sudo wget curl git xorg unzip xsel tldr neofetch aptitude -y
 
 # zsh
 sudo apt install zsh -y
@@ -18,7 +18,7 @@ sudo apt install i3 feh -y
 # rofi
 sudo apt install rofi -y
 
-# wifi menu (rofi)
+# wifi menu (rofi) dependencies
 sudo apt install network-manager dunst -y
 
 # pulseaudio
@@ -33,9 +33,7 @@ sudo apt install libreoffice -y
 # cli calendar
 sudo apt install calcurse -y
 
-# latex
-# sudo apt install texlive-full -y
-# all packages from texlive-full, minus unused languages
+# latex (all packages from texlive-full, minus unused languages)
 sudo apt install texlive-base texlive-bibtex-extra texlive-binaries texlive-font-utils texlive-fonts-extra-doc texlive-fonts-extra-links texlive-fonts-extra texlive-fonts-recommended-doc texlive-fonts-recommended texlive-formats-extra texlive-games texlive-humanities-doc texlive-humanities texlive-lang-english texlive-lang-german texlive-latex-base-doc texlive-latex-base texlive-latex-extra-doc texlive-latex-extra texlive-latex-recommended-doc texlive-latex-recommended texlive-luatex texlive-metapost-doc texlive-metapost texlive-music texlive-pictures-doc texlive-pictures texlive-plain-generic texlive-pstricks-doc texlive-pstricks texlive-publishers-doc texlive-publishers texlive-science-doc texlive-science texlive-xetex -y
 
 # ranger
