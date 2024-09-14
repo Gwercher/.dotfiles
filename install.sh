@@ -1,6 +1,6 @@
 mkdir ~/Downloads
 sudo apt update
-sudo apt install sudo wget curl git xorg unzip xsel tldr neofetch aptitude -y
+sudo apt install wget curl git xorg unzip xsel tldr neofetch aptitude -y
 
 # zsh
 sudo apt install zsh -y
@@ -49,7 +49,7 @@ sudo apt install gimp -y
 cd ~/Downloads && wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DejaVuSansMono.zip && sudo unzip DejaVuSansMono.zip -d /usr/local/share/fonts
 
 # neovim
-sudo apt-get install ninja-build gettext cmake unzip curl build-essential npm python3.11-venv pip -y
+sudo apt-get install ninja-build gettext cmake unzip curl build-essential python3.11-venv pip -y
 cd ~/Downloads/ && git clone https://github.com/neovim/neovim && cd neovim && git checkout stable && make CMAKE_BUILD_TYPE=RelWithDebInfo && cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 
 # rust
