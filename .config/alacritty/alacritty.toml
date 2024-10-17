@@ -1,7 +1,7 @@
-import = ["~/.config/alacritty/themes/themes/gruvbox_dark.toml"]
-live_config_reload = true
+general.import = ["~/.config/alacritty/themes/themes/gruvbox_dark.toml"]
+general.live_config_reload = true
 
-[shell]
+[terminal.shell]
 program = "/bin/zsh"
 
 [font]
@@ -38,3 +38,13 @@ action = "Copy"
 key = "V"
 mods = "Command|Shift"
 action = "Paste"
+
+[[keyboard.bindings]]
+key = "U"
+mods = "Alt"
+action = "ScrollPageUp"
+
+[[keyboard.bindings]]
+key = "D"
+mods = "Alt"
+action = "ScrollPageDown"
