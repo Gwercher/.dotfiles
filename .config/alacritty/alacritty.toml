@@ -27,6 +27,9 @@ lines = 30
 history = 10_000
 multiplier = 3
 
+[cursor]
+style.shape = "Beam"
+
 #########################################
 # keybindings
 [[keyboard.bindings]]
