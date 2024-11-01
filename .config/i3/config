@@ -8,9 +8,8 @@ font pango:DejaVuSansM Nerd Font Mono 12
 exec --no-startup-id dex --autostart --environment i3
 
 # set resolution
-# get display names using:
-# xrandr --query | grep " connected" | cut -d" " -f1
-exec --no-startup-id xrandr --output Virtual-1 --mode 1920x1080 
+# exec --no-startup-id xrandr --output "HDMI-0" --primary --mode 1920x1080 -r 60 --output "DVI-D-0" --right-of "HDMI-0" --mode 1920x1080 -r 60
+exec --no-startup-id picom --vsync
 
 # wallpaper
 set $wallpaper ~/.config/i3/wallpaper.png 
@@ -140,6 +139,9 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 bindsym $mod+Shift+plus  move container to workspace next
 bindsym $mod+Shift+minus move container to workspace prev 
+
+# move workspace to the right
+bindsym $mod+p move workspace to output right
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

@@ -15,6 +15,9 @@ sudo apt install polybar -y
 # i3
 sudo apt install i3 feh -y
 
+# picom
+sudo apt install picom -y
+
 # rofi
 sudo apt install rofi -y
 
