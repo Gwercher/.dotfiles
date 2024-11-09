@@ -18,6 +18,9 @@ sudo apt install i3 feh -y
 # picom
 sudo apt install picom -y
 
+# numlockx
+sudo apt install numlockx -y
+
 # rofi
 sudo apt install rofi -y
 
