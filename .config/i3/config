@@ -216,3 +216,8 @@ exec --no-startup-id ~/.config/polybar/launch_polybar.zsh
 
 # i3lock
 bindsym $mod+F1 exec --no-startup-id i3lock -i $wallpaper -t
+
+# autostart applications (example)
+# exec --no-startup-id i3-msg 'workspace 9; exec thunderbird'
+# exec --no-startup-id ~/.config/i3/discord_update.zsh
+# exec --no-startup-id i3-msg 'workspace 8; exec firefox --new-window open.spotify.com; exec discord'
