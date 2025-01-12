@@ -21,6 +21,9 @@ exec --no-startup-id dunst
 # turn on numlock on startx
 exec --no-startup-id numlockx on
 
+# turn off x11 display power management signaling
+exec --no-startup-id xset -dpms
+
 # lock screen after 300s
 exec --no-startup-id xset s 300
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i $wallpaper -t --nofork
