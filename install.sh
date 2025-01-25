@@ -89,6 +89,10 @@ cp ~/Downloads/alacritty/extra/completions/_alacritty ${ZDOTDIR:-~}/.zsh_functio
 # change alacritty to default terminal
 sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/local/bin/alacritty 50
 
+# install xidlehook
+sudo apt install libxss-dev libxcb-screensaver0-dev -y
+cargo install xidlehook --bins
+
 # copy dotfiles
 cp ~/.dotfiles/.config ~ -R
 cp ~/.dotfiles/.oh-my-zsh ~ -R
