@@ -61,7 +61,10 @@ cd $DIR && wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1
 
 # neovim
 sudo apt-get install ninja-build gettext cmake unzip curl build-essential python3.11-venv pip npm -y
-cd $DIR && git clone https://github.com/neovim/neovim && cd neovim && git checkout stable && make CMAKE_BUILD_TYPE=RelWithDebInfo && cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
+cd $DIR && git clone https://github.com/neovim/neovim && cd neovim && git checkout stable && make CMAKE_BUILD_TYPE=RelWithDebInfo && cd build && cpack -G DEB
+
+DEBDIR=$(ls $DIR/neovim/build | grep '^nvim.*\.deb$')
+sudo dpkg -i $DIR/neovim/build/$DEBDIR
 
 # rust
 sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 desktop-file-utils -y
