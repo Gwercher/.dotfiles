@@ -111,6 +111,8 @@ cp ~/.dotfiles/.xinitrc ~
 cp ~/.dotfiles/.zprofile ~
 cp ~/.dotfiles/.zshrc ~
 
+sudo cp ~/.dotfiles/etc/issues /etc/issue
+
 rm $DIR/alacritty -rf
 rm $DIR/neovim -rf
 rm $DIR/DejaVuSansMono.zip
