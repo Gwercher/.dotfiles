@@ -111,7 +111,7 @@ cp ~/.dotfiles/.xinitrc ~
 cp ~/.dotfiles/.zprofile ~
 cp ~/.dotfiles/.zshrc ~
 
-sudo cp ~/.dotfiles/etc/issues /etc/issue
+sudo cp ~/.dotfiles/etc/issue /etc/issue
 
 rm $DIR/alacritty -rf
 rm $DIR/neovim -rf
