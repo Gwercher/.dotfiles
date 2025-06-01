@@ -9,6 +9,7 @@
 #                                                                      #
 #                       Aphrodite Terminal Theme                       #
 #                 by Sergei Kolesnikov a.k.a. win0err                  #
+#                         (customized version)
 #                                                                      #
 #                        https://kolesnikov.se                         #
 #                                                                      #
@@ -18,17 +19,12 @@
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 setopt PROMPT_SUBST
 
-
 aphrodite_get_prompt() {
-	if [[ -v VIRTUAL_ENV ]]; then
-		echo -n "%F{7}["$(basename "$VIRTUAL_ENV")"]%f "
-	fi
-
+  echo
 #	echo -n "%F{6}%n" # username
 #	echo -n "%F{8}@"
 #	echo -n "%F{12}%m" # machine name
 #	echo -n "%F{8}:"
-  echo
 	echo -n "%F{7}%~"
 	echo -n " "
 
@@ -36,7 +32,11 @@ aphrodite_get_prompt() {
 	if [[ -n "$git_branch" ]]; then
 		local git_status=$(git --no-optional-locks status --porcelain 2> /dev/null | tail -n 1)
 		[[ -n "$git_status" ]] && echo -n "%F{1}" || echo -n "%F{6}"
-		echo -n "‹${git_branch}›%f"
+		echo -n "‹${git_branch}›%f "
+	fi
+
+	if [[ -v VIRTUAL_ENV ]]; then
+		echo -n "%F{7}["$(basename "$VIRTUAL_ENV")"]%f "
 	fi
 
 	if [[ -v APHRODITE_THEME_SHOW_TIME ]]; then
