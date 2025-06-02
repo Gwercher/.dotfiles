@@ -66,7 +66,7 @@ sudo apt install gimp -y
 cd $DIR && wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DejaVuSansMono.zip && sudo unzip DejaVuSansMono.zip -d /usr/local/share/fonts
 
 # neovim
-sudo apt-get install ninja-build gettext cmake unzip curl build-essential python3.11-venv pip npm -y
+sudo apt-get install ninja-build gettext cmake unzip curl build-essential python3.11-venv pip npm fzf -y
 cd $DIR && git clone https://github.com/neovim/neovim && cd neovim && git checkout stable && make CMAKE_BUILD_TYPE=RelWithDebInfo && cd build && cpack -G DEB
 
 DEBDIR=$(ls $DIR/neovim/build | grep '^nvim.*\.deb$')
