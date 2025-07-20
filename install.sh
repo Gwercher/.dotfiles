@@ -21,7 +21,7 @@ sudo chsh -s /bin/zsh $USER
 sudo apt install polybar -y
 
 # i3
-sudo apt install i3 feh -y
+sudo apt install i3 feh maim xclip -y
 
 # picom
 sudo apt install picom -y
