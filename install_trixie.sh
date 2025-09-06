@@ -112,7 +112,7 @@ cp ~/.dotfiles/.xinitrc ~
 cp ~/.dotfiles/.zprofile ~
 cp ~/.dotfiles/.zshrc ~
 
-sudo cp ~/.dotfiles/etc /etc -R
+sudo cp ~/.dotfiles/etc/* /etc -R
 
 rm $DIR/alacritty -rf
 rm $DIR/neovim -rf

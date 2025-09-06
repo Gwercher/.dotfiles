@@ -21,7 +21,7 @@ sudo chsh -s /bin/zsh $USER
 sudo apt install polybar -y
 
 # i3
-sudo apt install i3 feh maim xclip -y
+sudo apt install i3 feh -y
 
 # picom
 sudo apt install picom -y
@@ -111,7 +111,7 @@ cp ~/.dotfiles/.xinitrc ~
 cp ~/.dotfiles/.zprofile ~
 cp ~/.dotfiles/.zshrc ~
 
-sudo cp ~/.dotfiles/etc /etc -R
+sudo cp ~/.dotfiles/etc/* /etc -R
 
 rm $DIR/alacritty -rf
 rm $DIR/neovim -rf
