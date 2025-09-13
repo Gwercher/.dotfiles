@@ -8,8 +8,7 @@ DIR=/home/$USER/Downloads
 
 mkdir $DIR
 sudo apt update
-sudo apt install wget curl git xorg unzip xsel fastfetch aptitude -y
-# sudo apt install tldr # tldr not yet available on trixie
+sudo apt install wget curl git xorg unzip xsel fastfetch aptitude tealdeer -y
 
 # zsh
 sudo apt install zsh -y
