@@ -8,7 +8,7 @@ DIR=/home/$USER/Downloads
 
 mkdir $DIR
 sudo apt update
-sudo apt install wget curl git xorg unzip xsel tldr neofetch aptitude -y
+sudo apt install wget curl git xorg unzip xsel tealdeer neofetch aptitude -y
 
 # zsh
 sudo apt install zsh -y
