@@ -50,13 +50,15 @@ sudo apt-get update >/dev/null
 
 echo -e "Installing packages via apt-get...\n"
 install_pkg $(read_pkgs)
-cat $PKG_ERROR_FILE
+ERR_FILE_SIZE=$(du -k $PKG_ERROR_FILE | cut -f1)
 
-if [[ $? -eq 0 ]]; then
+if [[ $ERR_FILE_SIZE -eq 0 ]]; then
+	cat $PKG_ERROR_FILE
 	echo -e "\nError while installing apt-get packages. Exiting."
 	exit 1
 fi
 
+rm $PKG_ERROR_FILE
 echo "success installing apt-get packages!"
 
 # oh my zsh
