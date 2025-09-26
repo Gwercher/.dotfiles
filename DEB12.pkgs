@@ -1,0 +1,60 @@
+# general
+wget
+curl
+git
+xorg
+unzip
+xsel
+neofetch
+tealdeer
+zsh
+# polybar and i3
+polybar
+i3
+feh
+maim
+xclip
+picom
+numlockx
+rofi
+network-manager
+dunst
+pulseaudio
+pavucontrol
+# utensils
+firefox-esr
+thunderbird
+libreoffice
+calcurse
+texlive-full
+audacity
+ranger
+sqlite3
+sqlitebrowser
+gimp
+# neovim
+ninja-build
+gettext
+cmake
+unzip
+curl
+build-essential
+python3.11-venv
+pip
+npm
+fzf
+# rust
+cmake
+pkg-config
+libfreetype6-dev
+libfontconfig1-dev
+libxcb-xfixes0-dev
+libxkbcommon-dev
+python3
+desktop-file-utils
+# alacritty
+gzip
+scdoc
+# xidlehook 
+libxss-dev
+libxcb-screensaver0-dev
