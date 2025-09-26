@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REQ_DEBIAN_VER=12
+REQ_DEBIAN_VER=13
 CUR_DEB_VER=$(grep "VERSION_ID" /etc/os-release | grep -Eo "[0-9]{1,3}")
 
 get_date() {
