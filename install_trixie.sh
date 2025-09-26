@@ -23,8 +23,13 @@ read_pkgs() {
 }
 
 install_pkg() {
-	for pkg in $@; do
+	PKGS=$@
+	index=1
+	total=$(echo $PKGS | wc -w)
+	for pkg in $PKGS; do
+		echo "$index/$total ... $pkg"
 		sudo apt-get install $pkg -y >/dev/null 2>>$PKG_ERROR_FILE
+		index=$((index + 1))
 	done
 }
 
@@ -53,8 +58,6 @@ if [[ $? -eq 0 ]]; then
 fi
 
 echo "success installing apt-get packages!"
-
-exit 0
 
 # oh my zsh
 cd $DIR && sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
