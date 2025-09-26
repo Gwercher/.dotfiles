@@ -50,9 +50,8 @@ sudo apt-get update >/dev/null
 
 echo -e "Installing packages via apt-get...\n"
 install_pkg $(read_pkgs)
-ERR_FILE_SIZE=$(du -k $PKG_ERROR_FILE | cut -f1)
 
-if [[ $ERR_FILE_SIZE -eq 0 ]]; then
+if [[ ! -s $ERR_FILE_SIZE ]]; then
 	cat $PKG_ERROR_FILE
 	echo -e "\nError while installing apt-get packages. Exiting."
 	exit 1
