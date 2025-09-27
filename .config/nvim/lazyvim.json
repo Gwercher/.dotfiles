@@ -8,8 +8,9 @@
     "lazyvim.plugins.extras.lsp.neoconf",
     "lazyvim.plugins.extras.lsp.none-ls"
   ],
+  "install_version": 7,
   "news": {
-    "NEWS.md": "6520"
+    "NEWS.md": "11866"
   },
-  "version": 6
+  "version": 8
 }
