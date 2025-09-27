@@ -19,7 +19,7 @@ DEB_PKGS_FILE=./DEB$REQ_DEBIAN_VER.pkgs
 LATEX_PKGS_FILE=./LATEX.pkgs
 
 create_dir() {
-	sudo mkdir -p $1 2>/dev/null
+	mkdir -p $1 2>/dev/null
 }
 
 _read_pkgs() {
@@ -55,7 +55,7 @@ sudo apt-get update >/dev/null
 
 echo -e "Installing packages via apt-get..."
 install_pkgs $DEB_PKGS_FILE
-install_pkgs $LATEX_PKGS_FILE
+# install_pkgs $LATEX_PKGS_FILE
 
 if [ ! -s $ERR_FILE_SIZE ]; then
 	cat $PKG_ERROR_FILE
@@ -64,7 +64,7 @@ if [ ! -s $ERR_FILE_SIZE ]; then
 fi
 
 rm $PKG_ERROR_FILE 2>/dev/null
-echo "success installing apt-get packages!"
+echo -e "success installing apt-get packages!\n"
 
 # oh my zsh
 cd $DIR && sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
