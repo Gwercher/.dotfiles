@@ -19,7 +19,7 @@ DEB_PKGS_FILE=./DEB$REQ_DEBIAN_VER.pkgs
 LATEX_PKGS_FILE=./LATEX.pkgs
 
 create_dir() {
-	mkdir -p $1 2>/dev/null
+	mkdir -p $1 2>/dev/null || sudo mkdir -p $1 2>/dev/null
 }
 
 _read_pkgs() {
@@ -55,7 +55,7 @@ sudo apt-get update >/dev/null
 
 echo -e "Installing packages via apt-get..."
 install_pkgs $DEB_PKGS_FILE
-# install_pkgs $LATEX_PKGS_FILE
+install_pkgs $LATEX_PKGS_FILE
 
 if [ ! -s $ERR_FILE_SIZE ]; then
 	cat $PKG_ERROR_FILE
@@ -77,8 +77,8 @@ rm $DIR/DejaVuSansMono.zip
 # neovim
 cd $DIR && git clone https://github.com/neovim/neovim && cd neovim && git checkout stable && make CMAKE_BUILD_TYPE=RelWithDebInfo && cd build && cpack -G DEB
 
-DEBDIR=$(ls $DIR/neovim/build | grep '^nvim.*\.deb$')
-sudo dpkg -i $DIR/neovim/build/$DEBDIR
+NVIM_DEB=$(ls $DIR/neovim/build | grep '^nvim.*\.deb$')
+sudo dpkg -i $DIR/neovim/build/$NVIM_DEB
 
 rm $DIR/neovim -rf
 
@@ -94,6 +94,7 @@ cd $DIR/alacritty && cargo build --release --no-default-features --features=x11 
 
 create_dir /usr/local/share/man/man1
 create_dir /usr/local/share/man/man5
+
 scdoc <$DIR/alacritty/extra/man/alacritty.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty.1.gz >/dev/null
 scdoc <$DIR/alacritty/extra/man/alacritty-msg.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz >/dev/null
 scdoc <$DIR/alacritty/extra/man/alacritty.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty.5.gz >/dev/null
@@ -110,7 +111,7 @@ rm $DIR/alacritty -rf
 sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/local/bin/alacritty 50
 
 # install xidlehook
-cargo install xidlehook --bins
+cd $DIR && cargo install xidlehook --bins
 
 # copy dotfiles
 cp ~/.dotfiles/.config ~ -R
