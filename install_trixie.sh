@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 REQ_DEBIAN_VER=13
 CUR_DEB_VER=$(grep "VERSION_ID" /etc/os-release | grep -Eo "[0-9]{1,3}")
@@ -14,20 +15,24 @@ get_time() {
 START_DATETIME=$(get_date)__$(get_time)
 PKG_ERROR_FILE=./PKG_$START_DATETIME.ERR
 
+DEB_PKGS_FILE=./DEB$REQ_DEBIAN_VER.pkgs
+LATEX_PKGS_FILE=./LATEX.pkgs
+
 create_dir() {
 	sudo mkdir -p $1 2>/dev/null
 }
 
-read_pkgs() {
-	echo $(grep -Pv "^#" DEB$REQ_DEBIAN_VER.pkgs | tr "\n" " ")
+_read_pkgs() {
+	echo $(grep -Pv "^#" $1 | tr "\n" " ")
 }
 
-install_pkg() {
-	PKGS=$@
+install_pkgs() {
+	PKGS=$(_read_pkgs $1)
 	index=1
 	total=$(echo $PKGS | wc -w)
+	echo -e "\ninstalling $total apt-get packages from $1"
 	for pkg in $PKGS; do
-		echo "$index/$total ... $pkg"
+		echo -e "\t$index/$total ... $pkg"
 		sudo apt-get install $pkg -y >/dev/null 2>>$PKG_ERROR_FILE
 		index=$((index + 1))
 	done
@@ -48,8 +53,9 @@ DIR=$HOME/Downloads
 create_dir $DIR
 sudo apt-get update >/dev/null
 
-echo -e "Installing packages via apt-get...\n"
-install_pkg $(read_pkgs)
+echo -e "Installing packages via apt-get..."
+install_pkgs $DEB_PKGS_FILE
+install_pkgs $LATEX_PKGS_FILE
 
 if [ ! -s $ERR_FILE_SIZE ]; then
 	cat $PKG_ERROR_FILE
@@ -57,7 +63,7 @@ if [ ! -s $ERR_FILE_SIZE ]; then
 	exit 1
 fi
 
-rm $PKG_ERROR_FILE
+rm $PKG_ERROR_FILE 2>/dev/null
 echo "success installing apt-get packages!"
 
 # oh my zsh
