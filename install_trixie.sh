@@ -4,7 +4,7 @@ set -e
 REQ_DEBIAN_VER=13
 CUR_DEB_VER=$(grep "VERSION_ID" /etc/os-release | grep -Eo "[0-9]{1,3}")
 
-START_DATETIME=$(date +%d%m%Y)__$(date +%H_%M_%S))
+START_DATETIME=$(date +%d%m%Y)__$(date +%H_%M_%S)
 PKG_ERROR_FILE=./PKG_$START_DATETIME.ERR
 
 DEB_PKGS_FILE=./DEB$REQ_DEBIAN_VER.pkgs
