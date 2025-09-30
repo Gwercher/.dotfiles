@@ -61,14 +61,22 @@ main() {
 	echo -e "success installing apt-get packages!\n"
 
 	# oh my zsh
-	cd $DIR && sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
-	sudo chsh -s /bin/zsh $USER
+	cd $DIR && sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended &&
+		sudo chsh -s /bin/zsh $USER
 
 	# font: dejavu sansm nerd font
-	cd $DIR && wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DejaVuSansMono.zip && sudo unzip DejaVuSansMono.zip -d /usr/local/share/fonts && rm $DIR/DejaVuSansMono.zip
+	cd $DIR && wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DejaVuSansMono.zip &&
+		sudo unzip DejaVuSansMono.zip -d /usr/local/share/fonts &&
+		rm $DIR/DejaVuSansMono.zip
 
 	# neovim
-	cd $DIR && git clone https://github.com/neovim/neovim && cd neovim && git checkout stable && make CMAKE_BUILD_TYPE=RelWithDebInfo && cd build && cpack -G DEB
+	cd $DIR &&
+		git clone https://github.com/neovim/neovim &&
+		cd neovim &&
+		git checkout stable &&
+		make CMAKE_BUILD_TYPE=RelWithDebInfo &&
+		cd build &&
+		cpack -G DEB
 
 	local nvim_deb=$(ls $DIR/neovim/build | grep '^nvim.*\.deb$')
 	sudo dpkg -i $DIR/neovim/build/$nvim_deb
@@ -81,9 +89,14 @@ main() {
 	rustup override set stable && rustup update stable
 
 	# alacritty
-	cd $DIR && git clone https://github.com/alacritty/alacritty.git
-
-	cd $DIR/alacritty && cargo build --release --no-default-features --features=x11 && sudo tic -xe alacritty,alacritty-direct extra/alacritty.info && sudo cp target/release/alacritty /usr/local/bin && sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg && sudo desktop-file-install extra/linux/Alacritty.desktop && sudo update-desktop-database
+	cd $DIR &&
+		git clone https://github.com/alacritty/alacritty.git &&
+		cd alacritty && cargo build --release --no-default-features --features=x11 &&
+		sudo tic -xe alacritty,alacritty-direct extra/alacritty.info &&
+		sudo cp target/release/alacritty /usr/local/bin &&
+		sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg &&
+		sudo desktop-file-install extra/linux/Alacritty.desktop &&
+		sudo update-desktop-database
 
 	create_dir /usr/local/share/man/man1
 	create_dir /usr/local/share/man/man5
