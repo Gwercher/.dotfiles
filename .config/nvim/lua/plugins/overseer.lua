@@ -4,7 +4,7 @@ return {
     opts = {
       templates = {
         "builtin",
-        "user.c_build",
+        "user.gcc_build_run",
       },
     },
   },
