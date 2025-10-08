@@ -122,6 +122,7 @@ main() {
 	# copy dotfiles
 	cp ~/.dotfiles/.config ~ -R
 	cp ~/.dotfiles/.oh-my-zsh ~ -R
+	cp ~/.dotfiles/bin/ ~ -R
 	cp ~/.dotfiles/.xinitrc ~
 	cp ~/.dotfiles/.zprofile ~
 	cp ~/.dotfiles/.zshrc ~
