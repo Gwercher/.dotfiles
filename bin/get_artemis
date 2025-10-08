@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+DIR=$HOME/Documents/gitlabrepos
+
+create_dir() {
+	mkdir -p $1 1>/dev/null 2>&1
+}
+
+main() {
+	local url=$1
+	local name=$(echo $url | grep -Po "s\d{1,2}e\d{1,2}")
+	local linkfolder=$HOME/ws2025/einfuhrung_programmierung/ps/
+	local realfolder=$HOME/Documents/gitlabrepos/$name
+
+	create_dir $DIR
+
+	if [ -d $realfolder ]; then
+		echo "Directory '$realfolder' already exists!"
+		exit 1
+	fi
+
+	git clone $url $DIR/$name
+
+	ln -s $realfolder $linkfolder
+}
+
+main $@
