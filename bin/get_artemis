@@ -13,10 +13,15 @@ main() {
 	local realfolder=$HOME/Documents/gitlabrepos/$name
 
 	create_dir $DIR
+	create_dir $linkfolder
 
 	if [ -d $realfolder ]; then
 		echo "Directory '$realfolder' already exists!"
 		exit 1
+	fi
+
+	if [ -L $linkfolder$name ]; then
+		rm $linkfolder$name
 	fi
 
 	git clone $url $DIR/$name
