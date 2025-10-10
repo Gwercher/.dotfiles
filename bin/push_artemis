@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+main() {
+	local wd=$PWD
+	local name=$(basename $wd)
+
+	if [[ ! $(echo $name | grep -P "s\d{1,2}e\d{1,2}") ]]; then
+		echo "Not in a directory matching 'eXXsXX' exiting..."
+		exit 1
+	fi
+
+	cd $wd && git add . && git commit -m"$name" && git push && echo "add/commit/push in $wd"
+}
+
+main $@
