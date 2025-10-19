@@ -105,8 +105,8 @@ source $ZSH/oh-my-zsh.sh
 export VISUAL=nvim
 export RANGER_LOAD_DEFAULT_RC=false
 
-alias exi="exit"
 alias calc="python3 -ic 'from math import *'"
+alias :q="exit"
 
 ###########################################
 # vim like movement keybinds
@@ -132,3 +132,6 @@ bindkey "^[w" forward-word
 
 # alt + b: left word
 bindkey "^[b" backward-word 
+
+[ -f "/home/gwercher/.ghcup/env" ] && . "/home/gwercher/.ghcup/env" # ghcup-env
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
