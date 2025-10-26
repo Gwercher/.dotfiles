@@ -7,6 +7,6 @@ local outfile = vim.fn.expand("%:p:r")
 map(
   "n",
   "<leader>r",
-  string.format(":w | :TermExec cmd='pdflatex %s; :q' size=50 direction=float go_back=0<CR>", file),
+  string.format(":w | :TermExec cmd='pdflatex %s; :q' size=25 direction=float go_back=0<CR>", file),
   { desc = "Build and Run Tex File" }
 )

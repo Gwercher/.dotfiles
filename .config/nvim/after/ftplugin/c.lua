@@ -8,7 +8,7 @@ map(
   "n",
   "<leader>r",
   string.format(
-    ":w | :TermExec cmd='gcc %s -o %s -Wall -Wextra -Werror -Wpedantic -std=c18 && %s' size=50 direction=float go_back=0<CR>",
+    ":w | :TermExec cmd='gcc %s -o %s -Wall -Wextra -Werror -Wpedantic -std=c18 && %s' size=25 direction=float go_back=0<CR>",
     file,
     outfile,
     outfile
