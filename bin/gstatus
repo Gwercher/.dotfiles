@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+main() {
+	git status 2>/dev/null 1>/dev/null
+
+	local ret=$?
+	if [[ $ret -ne 0 ]]; then
+		echo "Not in git repository! Exiting..."
+		exit 0
+	fi
+
+	local count=$(git status -s | wc -l)
+	if [[ $count -eq 0 ]]; then
+		echo "No changes found! Exiting..."
+		exit 0
+	fi
+
+	echo "found $count change(s) inside $PWD"
+	git status -s
+
+	echo
+	read -p "Add files and commit? 'n' to abort: " in1
+
+	if [[ $in1 = n ]]; then
+		echo "aborting..."
+		exit 0
+	fi
+
+	git add .
+	echo
+
+	read -p "Commit message: " cm
+	git commit -m"$cm"
+	echo
+
+	git push
+}
+
+main $@

@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+main() {
+	local base_dir=$PWD
+	local dir=$(ls -d */)
+
+	echo -e "execute 'gstatus' in following directories?:"
+	for d in $dir; do
+		local path=$base_dir/$d
+		echo "  $path"
+	done
+
+	read -p "Continue? 'n' to abort: " in
+	echo
+
+	if [[ $in = n ]]; then
+		echo "aborting..."
+		exit 0
+	fi
+
+	for d in $dir; do
+		local path=$base_dir/$d
+		echo "$path: "
+		cd $path && gstatus
+	done
+
+}
+
+main $@
