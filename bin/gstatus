@@ -19,17 +19,10 @@ main() {
 	git status -s
 
 	echo
-	read -p "Add files and commit? 'n' to abort: " in1
-
-	if [[ $in1 = n ]]; then
-		echo "aborting..."
-		exit 0
-	fi
-
-	git add .
-	echo
 
 	read -p "Commit message: " cm
+	git add .
+	echo
 	git commit -m"$cm"
 	echo
 
