@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+main() {
+	if [[ $# -ne 0 ]]; then
+		echo -e "Summary result from '$@'"
+	fi
+
+	local cabal_input=$(cabal run)
+
+	local test_count=$(grep -c "running" <<<$cabal_input)
+	local passed_count=$(grep -c "OK" <<<$cabal_input)
+	local failed=$(grep -B1 -A3 "Failed" <<<$cabal_input)
+
+	echo -e "Ran $test_count Tests and passed $passed_count/$test_count Tests!"
+
+	if [[ $passed_count -eq $test_count ]]; then
+		exit 0
+	fi
+
+	echo "$failed" | sed 's|running|\nrunning|g'
+}
+
+main $@
