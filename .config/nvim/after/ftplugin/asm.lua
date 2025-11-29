@@ -1,6 +1,8 @@
 local Util = require("lazyvim.util")
 local map = Util.safe_keymap_set
 
+vim.opt_local.commentstring = "// %s"
+
 -- information: https://azeria-labs.com/arm-on-x86-qemu-user/
 
 map(
