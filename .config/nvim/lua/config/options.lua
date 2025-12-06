@@ -3,4 +3,4 @@
 -- Add any additional options here
 vim.opt.relativenumber = false
 
-vim.opt.guicursor = { "n-v-c-sm:ver25,i-ci-ve:ver25,r-cr-o:hor20" }
+-- vim.opt.guicursor = { "n-v-c-sm:ver25,i-ci-ve:ver25,r-cr-o:hor20" }

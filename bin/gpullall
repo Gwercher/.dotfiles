@@ -4,19 +4,19 @@ main() {
 	local base_dir=$PWD
 	local dir=$(ls -d */)
 
-	echo -e "execute 'git pull' in following directories?:"
+	echo -e "executing 'git pull' in following directories:"
 	for d in $dir; do
 		local path=$base_dir/$d
 		echo "  $path"
 	done
 
-	read -p "Continue? 'n' to abort: " in
-	echo
-
-	if [[ $in = n ]]; then
-		echo "aborting..."
-		exit 0
-	fi
+	# read -p "Continue? 'n' to abort: " in
+	# echo
+	#
+	# if [[ $in = n ]]; then
+	# 	echo "aborting..."
+	# 	exit 0
+	# fi
 
 	for d in $dir; do
 		local path=$base_dir/$d

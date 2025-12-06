@@ -8,7 +8,7 @@ create_dir() {
 
 main() {
 	local url=$1
-	local name=$(echo $url | grep -Po "s\d{1,2}e\d{1,2}")
+	local name=$(echo $url | grep -Eo '((s)|(test))[[:digit:]]*e[[:digit:]]*')
 	local linkfolder=$HOME/ws2025/einfuhrung_programmierung/ps/
 	local realfolder=$HOME/Documents/gitlabrepos/$name
 
