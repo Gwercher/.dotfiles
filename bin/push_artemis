@@ -4,7 +4,7 @@ main() {
 	local wd=$PWD
 	local name=$(basename $wd)
 
-	if [[ ! $(echo $name | grep -E '((s)|(test))[[:digit:]]*e[[:digit:]]*') ]]; then
+	if [[ ! $(echo $name | grep -E '((s)|(test[[:alnum:]]*))[[:digit:]]*e[[:digit:]]*') ]]; then
 		echo "Not in a directory matching '((s)|(test))XXeXX' exiting..."
 		exit 1
 	fi
