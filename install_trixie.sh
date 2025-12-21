@@ -64,7 +64,7 @@ main() {
 
 	# font: dejavu sansm nerd font
 	wget -O /tmp/font.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DejaVuSansMono.zip &&
-		sudo unzip /tmp/font.zip -d /usr/local/share/fonts
+		sudo unzip -o /tmp/font.zip -d /usr/local/share/fonts
 
 	# neovim
 	git clone https://github.com/neovim/neovim /tmp/neovim &&
@@ -79,7 +79,7 @@ main() {
 	sudo rm /tmp/neovim -rf
 
 	# rust
-	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+	cd ~ && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 	. "$HOME/.cargo/env"
 	rustup override set stable && rustup update stable
 
