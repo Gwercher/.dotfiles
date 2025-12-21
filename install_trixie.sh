@@ -42,6 +42,8 @@ main() {
 		exit 1
 	fi
 
+	sudo --validate
+
 	sudo apt-get update >/dev/null
 
 	echo -e "Installing packages via apt-get..."
@@ -61,7 +63,8 @@ main() {
 	sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended && sudo chsh -s /bin/zsh $USER
 
 	# font: dejavu sansm nerd font
-	wget -O /tmp/font.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DejaVuSansMono.zip && sudo unzip /tmp/font.zip -d /usr/local/share/fonts
+	wget -oO /tmp/font.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DejaVuSansMono.zip &&
+		sudo unzip /tmp/font.zip -d /usr/local/share/fonts
 
 	# neovim
 	git clone https://github.com/neovim/neovim /tmp/neovim &&
@@ -72,6 +75,8 @@ main() {
 		cpack -G DEB
 	local nvim_deb=$(ls /tmp/neovim/build | grep -E "^nvim.*.deb$")
 	sudo dpkg -i /tmp/neovim/build/$nvim_deb
+
+	sudo rm /tmp/neovim -rf
 
 	# rust
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -113,6 +118,7 @@ main() {
 	cp ~/.dotfiles/.xinitrc ~
 	cp ~/.dotfiles/.zprofile ~
 	cp ~/.dotfiles/.zshrc ~
+	cp ~/.dotfiles/.clang-format ~
 
 	sudo cp ~/.dotfiles/etc/* /etc -R
 
