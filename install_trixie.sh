@@ -63,7 +63,7 @@ main() {
 	sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended && sudo chsh -s /bin/zsh $USER
 
 	# font: dejavu sansm nerd font
-	wget -oO /tmp/font.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DejaVuSansMono.zip &&
+	wget -O /tmp/font.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DejaVuSansMono.zip &&
 		sudo unzip /tmp/font.zip -d /usr/local/share/fonts
 
 	# neovim
