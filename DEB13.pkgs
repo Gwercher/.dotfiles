@@ -29,6 +29,8 @@ ranger
 gimp
 arandr
 figlet
+zathura
+latexmk
 # neovim
 ninja-build
 gettext
