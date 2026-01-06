@@ -1,10 +1,10 @@
 return {
-  { "ellisonleao/gruvbox.nvim" },
+  { "xiantang/darcula-dark.nvim" },
 
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox",
+      colorscheme = "darcula-dark",
     },
   },
 }
