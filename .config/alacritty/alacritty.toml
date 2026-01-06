@@ -1,4 +1,5 @@
-general.import = ["~/.config/alacritty/themes/themes/gruvbox_dark.toml"]
+# general.import = ["~/.config/alacritty/themes/gruvbox_dark.toml"]
+general.import = ["~/.config/alacritty/themes/darcula_dark.toml"]
 general.live_config_reload = true
 
 [terminal.shell]
@@ -12,9 +13,9 @@ family = "DejaVuSansM Nerd Font Mono"
 style = "Regular"
 
 [window]
-decorations = "Full"
+decorations = "full"
 padding = { x = 5, y = 5 }
-opacity = 1.00 
+opacity = 1.00
 title = "Alacritty"
 dynamic_title = true
 decorations_theme_variant = "Dark"
@@ -30,7 +31,7 @@ multiplier = 3
 [cursor]
 style.shape = "Block"
 
-#########################################
+## #######################################
 # keybindings
 [[keyboard.bindings]]
 key = "C"

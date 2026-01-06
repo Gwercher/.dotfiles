@@ -1,0 +1,29 @@
+# Colors (darcula_dark)
+
+# Default colors
+[colors.primary]
+background = "#2B2B2B"
+foreground = "#C9D0D3"
+
+# Normal colors
+[colors.normal]
+black = "#2B2B2B"
+red = "#f43753"
+# green = "#98be65"
+green = "#ffc66b"
+yellow = "#cc7832"
+blue = "#6FAFBD"
+magenta = "#9876AA"
+cyan = "#AD9E7D"
+white = "#C9D0D3"
+
+# Bright colors
+[colors.bright]
+black = "#808080"
+red = "#f43753"
+green = "#ffc66b"
+yellow = "#cc7832"
+blue = "#6FAFBD"
+magenta = "#9876AA"
+cyan = "#AD9E7D"
+white = "#C9D0D3"
