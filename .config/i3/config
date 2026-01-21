@@ -9,7 +9,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # set resolution
 # exec --no-startup-id xrandr --output "HDMI-0" --primary --mode 1920x1080 -r 60 --output "DVI-D-0" --right-of "HDMI-0" --mode 1920x1080 -r 60
-exec --no-startup-id picom --vsync
+exec --no-startup-id picom --vsync --backend glx
 
 # wallpaper
 set $wallpaper ~/.config/i3/wallpaper.png 
