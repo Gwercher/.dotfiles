@@ -1,0 +1,4 @@
+(
+    selection_bg: Some("#484848"),
+    cmdbar_bg: Some("#484848"),
+    )
