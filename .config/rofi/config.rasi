@@ -146,4 +146,4 @@ window-thumbnail: false;
   }
 }
 
-@theme "~/.config/rofi/gruvbox-dark.rasi"
+@theme "~/.config/rofi/darcula-dark.rasi"

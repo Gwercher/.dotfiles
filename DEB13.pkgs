@@ -8,6 +8,7 @@ xsel
 fastfetch
 tealdeer
 zsh
+ripgrep
 # polybar and i3
 polybar
 i3
