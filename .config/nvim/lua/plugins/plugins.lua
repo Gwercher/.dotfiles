@@ -8,4 +8,20 @@ return {
       c = "// %s",
     },
   }),
+
+  {
+    "folke/noice.nvim",
+    require("noice").setup({
+      routes = {
+        {
+          filter = {
+            event = "lsp",
+            kind = "progress",
+            find = "jdtls",
+          },
+          opts = { skip = true },
+        },
+      },
+    }),
+  },
 }
