@@ -24,7 +24,10 @@ return {
       },
     }),
   },
-  { "neovim/nvim-lspconfig", opts = {
-    vim.lsp.enable("julials"),
-  } },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      vim.lsp.enable("julials"),
+    },
+  },
 }

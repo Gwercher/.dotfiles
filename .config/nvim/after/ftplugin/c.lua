@@ -22,4 +22,4 @@ map(
   { desc = "Valgrind memcheck" }
 )
 
-map("n", "<leader>m", ":w | :TermExec cmd='make run' size=65 direction=vertical go_back=1<CR>", { desc = "Make run" })
+map("n", "<leader>m", ":w | :TermExec cmd='make' size=65 direction=vertical go_back=0<CR>", { desc = "make" })
