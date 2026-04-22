@@ -9,6 +9,7 @@ fastfetch
 tealdeer
 zsh
 ripgrep
+fd-find
 # polybar and i3
 polybar
 i3
