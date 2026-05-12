@@ -1,0 +1,13 @@
+{
+  "Equation Aligned": {
+    "prefix": "eqali",
+    "body": [
+      "\\\\begin{equation*}",
+      "\t\\\\begin{aligned}",
+      "\t\t$0",
+      "\t\\\\end{aligned}",
+      "\\\\end{equation*}"
+    ],
+    "description": "Equation* and aligned environments"
+  }
+}
