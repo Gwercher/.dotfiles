@@ -9,5 +9,12 @@
       "\\\\end{equation*}"
     ],
     "description": "Equation* and aligned environments"
+  },
+  "text txpewriter": {
+    "prefix": "tt",
+    "body": [
+      "\\\\texttt{$0}"
+    ],
+    "description": "text typewriter"
   }
 }
