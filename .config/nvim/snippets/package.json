@@ -12,6 +12,12 @@
           "plaintex"
         ],
         "path": "./latex.json"
+      },
+      {
+        "language": [
+          "c"
+        ],
+        "path": "./c.json"
       }
     ]
   }

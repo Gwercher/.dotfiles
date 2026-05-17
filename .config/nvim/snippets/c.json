@@ -1,0 +1,9 @@
+{
+  "POSIX source": {
+    "prefix": "posixsrc",
+    "body": [
+      "#define _POSIX_C_SOURCE 200809L"
+    ],
+    "description": "POSIX source define"
+  }
+}
