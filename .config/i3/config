@@ -7,10 +7,6 @@ font pango:DejaVuSansM Nerd Font Mono 12
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-# set resolution
-# exec --no-startup-id xrandr --output "HDMI-0" --primary --mode 1920x1080 -r 60 --output "DVI-D-0" --right-of "HDMI-0" --mode 1920x1080 -r 60
-exec --no-startup-id picom --vsync --backend xrender
-
 # wallpaper
 set $wallpaper ~/.config/i3/wallpaper.png 
 exec --no-startup-id feh --bg-scale $wallpaper
@@ -190,14 +186,6 @@ bindsym $mod+r mode "resize"
 # Inner gaps for all windows: space between two adjacent windows (or split containers).
 gaps inner 10px
 
-# color vars
-# gruvbox
-# set $cfocused #d79921
-# set $cfoc_in #32302f
-# set $cunfocsed #282828
-# set $curgent #cc241d
-# set $ctext #ffffff
-
 # darcula dark
 set $cfocused #CC7832
 set $cfoc_in #383838
@@ -217,10 +205,8 @@ client.background       $ctext
 # border style
 default_border pixel 5
 
-# new dmenu, using rofi
+# dmenu
 bindsym $mod+d exec --no-startup-id rofi -show drun 
-
-# alt+tab between windows
 bindsym mod1+Tab exec --no-startup-id rofi -show window
 
 # start polybar on all displays
@@ -232,6 +218,18 @@ bindsym $mod+F1 exec --no-startup-id i3lock -i $wallpaper -t -ef -n
 # screenshot with print btn
 bindsym Print exec maim -s -u | xclip -selection clipboard -t image/png -i
 
-# autostart applications (example)
-# exec --no-startup-id i3-msg 'workspace 9; exec thunderbird'
-# exec --no-startup-id i3-msg 'workspace 8; exec firefox --new-window open.spotify.com; exec discord'
+# set keyboard layouts
+exec --no-startup-id setxkbmap -layout us,de
+
+# set resolution
+# set $ml "DP-2"
+# set $mr "HDMI-0"
+# exec --no-startup-id xrandr --output $ml --primary --mode 1920x1080 -r 180 --output $mr --right-of "DP-2" --mode 1920x1080 -r 60
+
+# workspace $ws1 output $ml
+# workspace $ws8 output $mr
+# workspace $ws9 output $mr
+# exec --no-startup-id i3-msg 'workspace 9; exec thunderbird;'
+# exec --no-startup-id i3-msg 'workspace 8; exec firefox --new-window open.spotify.com; exec discord;'
+# exec --no-startup-id i3-msg 'workspace 1;'
+
