@@ -10,6 +10,8 @@ PKG_ERROR_FILE=./PKG_$START_DATETIME.ERR
 DEB_PKGS_FILE=./DEB$REQ_DEBIAN_VER.pkgs
 LATEX_PKGS_FILE=./LATEX.pkgs
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 create_dir() {
   mkdir -p $1 2>/dev/null || sudo mkdir -p $1 2>/dev/null
 }
@@ -67,7 +69,7 @@ main() {
     sudo unzip -o /tmp/font.zip -d /usr/local/share/fonts
 
   # neovim
-  bash nvim.sh
+  bash "$SCRIPT_DIR/nvim.sh"
 
   # rust
   cd ~ && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -75,7 +77,7 @@ main() {
   rustup override set stable && rustup update stable
 
   # alacritty
-  bash alacritty.sh
+  bash "$SCRIPT_DIR/alacritty.sh"
 
   # install xidlehook
   cargo install xidlehook --bins
