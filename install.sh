@@ -1,120 +1,98 @@
 #!/bin/bash
-if [ "$EUID" -eq 0 ]; then
-	echo "This script must not be run as root. Exiting."
-	exit 1
-fi
+set -e
 
-DIR=/home/$USER/Downloads
+REQ_DEBIAN_VER=13
+CUR_DEB_VER=$(grep "VERSION_ID" /etc/os-release | grep -Eo "[0-9]{1,3}")
 
-mkdir $DIR
-sudo apt update
-sudo apt install wget curl git xorg unzip xsel tealdeer neofetch aptitude -y
+START_DATETIME=$(date +%d%m%Y)__$(date +%H_%M_%S)
+PKG_ERROR_FILE=./PKG_$START_DATETIME.ERR
 
-# zsh
-sudo apt install zsh -y
+DEB_PKGS_FILE=./DEB$REQ_DEBIAN_VER.pkgs
+LATEX_PKGS_FILE=./LATEX.pkgs
 
-# oh my zsh
-cd $DIR && sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended
-sudo chsh -s /bin/zsh $USER
+create_dir() {
+  mkdir -p $1 2>/dev/null || sudo mkdir -p $1 2>/dev/null
+}
 
-# polybar
-sudo apt install polybar -y
+_read_pkgs() {
+  echo $(grep -Pv "^#" $1 | tr "\n" " ")
+}
 
-# i3
-sudo apt install i3 feh -y
+install_pkgs() {
+  local pkgs=$(_read_pkgs $1)
+  local index=1
+  local total=$(echo $pkgs | wc -w)
 
-# picom
-sudo apt install picom -y
+  echo -e "\ninstalling $total apt-get packages from $1"
+  for pkg in $pkgs; do
+    echo -e "\t$index/$total ... $pkg"
+    sudo apt-get install $pkg -y >/dev/null 2>>$PKG_ERROR_FILE
+    index=$((index + 1))
+  done
+}
 
-# numlockx
-sudo apt install numlockx -y
+main() {
+  if [ "$EUID" -eq 0 ]; then
+    echo "This script must not be run as root. Exiting."
+    exit 1
+  fi
 
-# rofi
-sudo apt install rofi -y
+  if [ $CUR_DEB_VER -ne $REQ_DEBIAN_VER ]; then
+    echo "This script only supports Debian version $REQ_DEBIAN_VER (found version $CUR_DEB_VER). Exiting."
+    exit 1
+  fi
 
-# wifi menu (rofi) dependencies
-sudo apt install network-manager dunst -y
+  sudo --validate
 
-# pulseaudio
-sudo apt install pulseaudio pavucontrol -y
+  sudo apt-get update >/dev/null
 
-# firefox and thunderbird
-sudo apt install firefox-esr thunderbird -y
+  echo -e "Installing packages via apt-get..."
+  install_pkgs $DEB_PKGS_FILE
+  install_pkgs $LATEX_PKGS_FILE
 
-# libreoffice
-sudo apt install libreoffice -y
+  if [ ! -s $ERR_FILE_SIZE ]; then
+    cat $PKG_ERROR_FILE
+    echo -e "\nError while installing apt-get packages. Exiting."
+    exit 1
+  fi
 
-# cli calendar
-sudo apt install calcurse -y
+  rm $PKG_ERROR_FILE 2>/dev/null
+  echo -e "success installing apt-get packages!\n"
 
-# latex (all packages from texlive-full, minus unused languages)
-sudo apt install texlive-base texlive-bibtex-extra texlive-binaries texlive-font-utils texlive-fonts-extra-doc texlive-fonts-extra-links texlive-fonts-extra texlive-fonts-recommended-doc texlive-fonts-recommended texlive-formats-extra texlive-games texlive-humanities-doc texlive-humanities texlive-lang-english texlive-lang-german texlive-latex-base-doc texlive-latex-base texlive-latex-extra-doc texlive-latex-extra texlive-latex-recommended-doc texlive-latex-recommended texlive-luatex texlive-metapost-doc texlive-metapost texlive-music texlive-pictures-doc texlive-pictures texlive-plain-generic texlive-pstricks-doc texlive-pstricks texlive-publishers-doc texlive-publishers texlive-science-doc texlive-science texlive-xetex -y
+  # oh my zsh
+  sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended && sudo chsh -s /bin/zsh $USER
 
-# audacity
-sudo apt install audacity -y
+  # font: dejavu sansm nerd font
+  wget -O /tmp/font.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DejaVuSansMono.zip &&
+    sudo unzip -o /tmp/font.zip -d /usr/local/share/fonts
 
-# ranger
-sudo apt install ranger -y
+  # neovim
+  bash nvim.sh
 
-# sqlite3 and sqlitebrowser
-sudo apt install sqlite3 sqlitebrowser -y
+  # rust
+  cd ~ && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+  . "$HOME/.cargo/env"
+  rustup override set stable && rustup update stable
 
-# gimp
-sudo apt install gimp -y
+  # alacritty
+  create_dir ${ZDOTDIR:-~}/.zsh_functions
+  bash alacritty.sh
 
-# font: dejavu sansm nerd font
-cd $DIR && wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DejaVuSansMono.zip && sudo unzip DejaVuSansMono.zip -d /usr/local/share/fonts
+  # install xidlehook
+  cargo install xidlehook --bins
 
-# neovim
-sudo apt-get install ninja-build gettext cmake unzip curl build-essential python3.11-venv pip npm fzf -y
-cd $DIR && git clone https://github.com/neovim/neovim && cd neovim && git checkout stable && make CMAKE_BUILD_TYPE=RelWithDebInfo && cd build && cpack -G DEB
+  # copy dotfiles
+  cp ~/.dotfiles/.config ~ -R
+  cp ~/.dotfiles/.oh-my-zsh ~ -R
+  cp ~/.dotfiles/bin/ ~ -R
+  cp ~/.dotfiles/.xinitrc ~
+  cp ~/.dotfiles/.zprofile ~
+  cp ~/.dotfiles/.zshrc ~
+  cp ~/.dotfiles/.clang-format ~
 
-DEBDIR=$(ls $DIR/neovim/build | grep '^nvim.*\.deb$')
-sudo dpkg -i $DIR/neovim/build/$DEBDIR
+  sudo cp ~/.dotfiles/etc/* /etc -R
 
-# rust
-sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 desktop-file-utils -y
-cd $DIR && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-. "$HOME/.cargo/env"
-rustup override set stable && rustup update stable
+  sudo reboot
+}
 
-# alacritty
-cd $DIR && git clone https://github.com/alacritty/alacritty.git
-
-cd $DIR/alacritty && cargo build --release --no-default-features --features=x11 && sudo tic -xe alacritty,alacritty-direct extra/alacritty.info && sudo cp target/release/alacritty /usr/local/bin && sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg && sudo desktop-file-install extra/linux/Alacritty.desktop && sudo update-desktop-database
-
-sudo apt install gzip scdoc -y
-
-sudo mkdir -p /usr/local/share/man/man1
-sudo mkdir -p /usr/local/share/man/man5
-scdoc <$DIR/alacritty/extra/man/alacritty.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty.1.gz >/dev/null
-scdoc <$DIR/alacritty/extra/man/alacritty-msg.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz >/dev/null
-scdoc <$DIR/alacritty/extra/man/alacritty.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty.5.gz >/dev/null
-scdoc <$DIR/alacritty/extra/man/alacritty-bindings.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz >/dev/null
-
-mkdir -p ${ZDOTDIR:-~}/.zsh_functions
-echo 'fpath+=${ZDOTDIR:-~}/.zsh_functions' >>${ZDOTDIR:-~}/.zshrc
-
-cp $DIR/alacritty/extra/completions/_alacritty ${ZDOTDIR:-~}/.zsh_functions/_alacritty
-
-# change alacritty to default terminal
-sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/local/bin/alacritty 50
-
-# install xidlehook
-sudo apt install libxss-dev libxcb-screensaver0-dev -y
-cargo install xidlehook --bins
-
-# copy dotfiles
-cp ~/.dotfiles/.config ~ -R
-cp ~/.dotfiles/.oh-my-zsh ~ -R
-cp ~/.dotfiles/.xinitrc ~
-cp ~/.dotfiles/.zprofile ~
-cp ~/.dotfiles/.zshrc ~
-
-sudo cp ~/.dotfiles/etc/* /etc -R
-
-rm $DIR/alacritty -rf
-rm $DIR/neovim -rf
-rm $DIR/DejaVuSansMono.zip
-
-sudo reboot
+main $@
