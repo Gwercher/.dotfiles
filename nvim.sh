@@ -20,6 +20,8 @@ main() {
     exit 1
   fi
 
+  sudo --validate
+
   install_nvim
 }
 
