@@ -10,9 +10,6 @@ install_alacritty() {
     sudo desktop-file-install extra/linux/Alacritty.desktop &&
     sudo update-desktop-database
 
-  create_dir /usr/local/share/man/man1
-  create_dir /usr/local/share/man/man5
-
   scdoc </tmp/alacritty/extra/man/alacritty.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty.1.gz >/dev/null
   scdoc </tmp/alacritty/extra/man/alacritty-msg.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz >/dev/null
   scdoc </tmp/alacritty/extra/man/alacritty.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty.5.gz >/dev/null
