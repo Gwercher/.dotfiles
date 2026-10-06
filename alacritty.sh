@@ -1,5 +1,8 @@
 #!/bin/bash
-source "$(dirname "$0")/install.sh"
+
+create_dir() {
+  mkdir -p $1 2>/dev/null || sudo mkdir -p $1 2>/dev/null
+}
 
 install_alacritty() {
   git clone https://github.com/alacritty/alacritty.git /tmp/alacritty &&
