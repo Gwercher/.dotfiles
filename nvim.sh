@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 install_nvim() {
   git clone https://github.com/neovim/neovim /tmp/neovim &&

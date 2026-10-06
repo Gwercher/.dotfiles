@@ -75,9 +75,6 @@ main() {
   rustup override set stable && rustup update stable
 
   # alacritty
-  create_dir /usr/local/share/man/man1
-  create_dir /usr/local/share/man/man5
-  create_dir ${ZDOTDIR:-~}/.zsh_functions
   bash alacritty.sh
 
   # install xidlehook
