@@ -1,5 +1,5 @@
 #!/bin/bash
-source "$(dirname "$0")/A.sh"
+source "$(dirname "$0")/install.sh"
 
 install_alacritty() {
   git clone https://github.com/alacritty/alacritty.git /tmp/alacritty &&
